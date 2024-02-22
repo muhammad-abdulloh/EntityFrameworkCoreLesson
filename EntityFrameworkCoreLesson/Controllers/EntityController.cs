@@ -1,11 +1,12 @@
 ﻿using EntityFrameworkCoreLesson.Applications.CarServices;
 using EntityFrameworkCoreLesson.Models;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Http.Metadata;
 using Microsoft.AspNetCore.Mvc;
 
 namespace EntityFrameworkCoreLesson.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/[controller]/[action]")]
     [ApiController]
     public class EntityController : ControllerBase
     {
@@ -23,5 +24,39 @@ namespace EntityFrameworkCoreLesson.Controllers
 
             return result;
         }
+
+        [HttpGet]
+        public async Task<List<Car>> GetAllCars()
+        {
+            var result = await _carService.GetAllCarAsync();
+
+            return result;
+        }
+
+        [HttpGet]
+        public async Task<Car> GetAllCarsById(int id)
+        {
+            var result = await _carService.GetCarByIdAsync(id);
+
+            return result;
+        }
+
+
+        [HttpPut]
+        public async Task<Car> UpdateCarsById(int id, Car model)
+        {
+            var result = await _carService.UpdateCarAsync(id, model);
+
+            return result;
+        }
+
+        [HttpDelete]
+        public async Task<bool> DeleteCarsById(int id)
+        {
+            var result = await _carService.DeleteCarAsync(id);
+
+            return result;
+        }
+
     }
 }

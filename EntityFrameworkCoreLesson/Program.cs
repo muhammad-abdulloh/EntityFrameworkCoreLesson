@@ -14,8 +14,11 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
 
+#if DEBUG
 builder.Services.AddScoped<ICarService, CarService>();
-
+#else 
+builder.Services.Singleton<ICarService, CarService>();
+#endif
 
 
 
@@ -26,7 +29,7 @@ builder.Services.AddSwaggerGen();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
+if (app.Environment.IsDevelopment() || app.Environment.IsProduction())
 {
     app.UseSwagger();
     app.UseSwaggerUI();

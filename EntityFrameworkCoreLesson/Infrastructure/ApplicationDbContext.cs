@@ -8,7 +8,7 @@ namespace EntityFrameworkCoreLesson.Infrastructure
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {
-            
+            Database.Migrate();
         }
 
         public DbSet<Car> Cars { get; set; }

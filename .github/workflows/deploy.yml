@@ -10,9 +10,19 @@ jobs:
     name: Build dotnet application
     runs-on: ubuntu-latest
     steps:
+
     - uses: actions/checkout@v4
     - name: Setup dotnet
       uses: actions/setup-dotnet@v4
       with:
         dotnet-version: '8.x'
     - run: dotnet build
+
+    - name: Restore application
+      run: dotnet restore
+
+    - name: Publish
+      run: dotnet publish
+
+    - name: Finishing
+      run: echo Success

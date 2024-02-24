@@ -26,3 +26,20 @@ jobs:
 
     - name: Finishing
       run: echo Success
+
+  deploy:
+    needs: build
+    name: Deploy code to server
+    runs-on: ubuntu-latest
+    steps:
+      - name: executing remote ssh commands using ssh key
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.KEY }}
+          port: 22
+          script: |
+            su -l komilov
+            cd ~/dotnetfolder/EntityFrameworkCoreLesson
+            ./deploy.sh

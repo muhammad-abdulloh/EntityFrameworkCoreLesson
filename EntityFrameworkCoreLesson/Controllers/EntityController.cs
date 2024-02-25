@@ -32,33 +32,13 @@ namespace EntityFrameworkCoreLesson.Controllers
 
             return result;
         }
-        [HttpGet]
-        public async Task<List<Car>> GetAllCars2()
-        {
-            var result = await _carService.GetAllCarAsync();
 
-            return result;
-        }
         [HttpGet]
-        public async Task<List<Car>> GetAllCars3()
+        public  List<Type> GetAllCars5()
         {
-            var result = await _carService.GetAllCarAsync();
+             var res = _carService.UseMyMethod();
 
-            return result;
-        }
-        [HttpGet]
-        public async Task<List<Car>> GetAllCars4()
-        {
-            var result = await _carService.GetAllCarAsync();
-
-            return result;
-        }
-        [HttpGet]
-        public async Task<List<Car>> GetAllCars5()
-        {
-            var result = await _carService.GetAllCarAsync();
-
-            return result;
+            return res;
         }
         [HttpGet]
         public async Task<List<Car>> GetAllCars6()

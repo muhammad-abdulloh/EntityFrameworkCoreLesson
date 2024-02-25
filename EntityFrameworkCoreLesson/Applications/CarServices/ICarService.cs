@@ -9,5 +9,6 @@ namespace EntityFrameworkCoreLesson.Applications.CarServices
         public Task<bool> DeleteCarAsync(int id);
         public Task<List<Car>> GetAllCarAsync();
         public Task<Car> GetCarByIdAsync(int id);
+        List<Type> UseMyMethod();
     }
 }

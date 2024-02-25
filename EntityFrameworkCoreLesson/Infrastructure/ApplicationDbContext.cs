@@ -1,4 +1,5 @@
-﻿using EntityFrameworkCoreLesson.Models;
+﻿using EntityFrameworkCoreLesson.Applications.CarServices;
+using EntityFrameworkCoreLesson.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace EntityFrameworkCoreLesson.Infrastructure
@@ -12,5 +13,7 @@ namespace EntityFrameworkCoreLesson.Infrastructure
         }
 
         public DbSet<Car> Cars { get; set; }
+        public DbSet<Probems> Probems { get; set; }
+        public DbSet<Probems2> Probems2 { get; set; }
     }
 }

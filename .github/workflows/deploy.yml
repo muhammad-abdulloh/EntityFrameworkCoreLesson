@@ -35,11 +35,11 @@ jobs:
       - name: executing remote ssh commands using ssh key
         uses: appleboy/ssh-action@v1.0.3
         with:
-          host: ${{ secrets.HOST }}
-          username: ${{ secrets.USERNAME }}
-          key: ${{ secrets.KEY }}
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USERNAME }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: 22
           script: |
-            su -l komilov
-            cd ~/dotnetfolder/EntityFrameworkCoreLesson
+            su -l abdulloh
+            cd ~/dotnetdeploy/EntityFrameworkCoreLesson
             ./deploy.sh
